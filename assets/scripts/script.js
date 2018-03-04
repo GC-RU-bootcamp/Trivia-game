@@ -1,20 +1,49 @@
 
 var game = {
-  time: 20,
-  maxTime: 20,
-  level: 0,
+  time: 10,
+  maxTime: 10,
+  level: -1,  //values 1-13
   list: data,
   barColor: "bg-primary",
   nextQuestion: function() {
-    var c = game.list[game.level].choice;
-    $("#question").text(game.list[game.level].question);
-    
-    for (i = 0; i < c.length; i++) {
-      $("#c" + (i + 1)).text(game.list[game.level].choice[i]);
-    }
     game.level++;
     if (game.level >= game.list.length) {
       game.level = 0;
+    }
+    var c = game.list[game.level].choice;
+    $("#question").text(game.list[game.level].question);
+    var ans, ansBox;
+    for (i = 0; i < c.length; i++) {
+      ans = $("#c" + (i + 1));
+      ansBox = $("#cb" + (i + 1));
+      ans.text(game.list[game.level].choice[i]);
+      ansBox.removeClass("bg-danger bg-success bg-dark text-white text-dark");
+      ansBox.addClass("bg-dark text-white");
+    }
+    game.setList(game.level+1);
+  },
+  
+  setList: function(level){
+    for (let index = 1; index <= 14; index++) {
+       
+      var li = $("#L"+index)
+      li.removeClass();
+      if (index < level){
+        li.addClass("level-list-done text-center");
+      } else if (index === level){
+        li.addClass("level-list-selected text-center");
+      } else {
+        li.addClass("level-list text-center");
+      }
+    }
+  },
+
+  initAnswers: function(){
+    var ans;
+    for (let index = 1; index <= 4; index++) {
+      ans = $("#c"+index)
+      ans.removeClass("bg-danger bg-success bg-dark text-white text-dark");
+      ans.addClass("bg-dark text-white");
     }
   }
 };
@@ -22,13 +51,29 @@ var game = {
 
 //var time = 20;
 
+$(".answer").click(function() {
+  var val = parseInt($(this).attr("value"));
+  var ans = game.list[game.level].answer;
+
+  if ( ans !== val) {
+    $(this).removeClass("bg-danger bg-success bg-dark text-white text-dark");
+    $(this).addClass("bg-danger text-white");
+  } else {
+    $(this).removeClass("bg-danger bg-success bg-dark text-white text-dark");
+    $(this).addClass("bg-success text-white");
+  }
+  
+});
+
 var timer1 = window.setInterval(gameTimer, 1000);
 game.nextQuestion();
-
+// game.setList(game.level);
 
 $("#test").on("click", function(e) {
   game.nextQuestion();
 });
+
+
 
 function gameTimer() {
   var p = Math.round(game.time / game.maxTime * 100);
@@ -78,6 +123,8 @@ function gameTimer() {
   if (game.time === -1) {
     game.time = game.maxTime;
     game.nextQuestion();
+    // setList(game.level);
+
   }
 
 }

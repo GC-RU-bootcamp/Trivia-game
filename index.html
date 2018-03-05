@@ -67,8 +67,8 @@
             <li class="level-list" id="L2">1,000</li>
             <li class="level-list" id="L1">500</li>
             <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-            <a id="test" class="btn btn-primary">next question</a>
           </div>
+          <!-- <a id="test" class="btn btn-primary">next question</a> -->
         </div>
       </div>
       <!-- center panel -->
@@ -76,46 +76,48 @@
         <div class="container">
 
           <div class="jumbotron text-light text-center">
-            <h1 class="display-6">jumbotron</h1>
+            <h1 id="jumbo-banner" class="display-6">Welcome to Millionare</h1>
             <!-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> -->
-            <hr class="my-4">
+            <!-- <hr class="my-4"> -->
             <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
             <!-- <p class="lead"> -->
             <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
             <!-- </p> -->
           </div>
-          <div class="progress" style="height: 40px">
-            <div id="time-bar" class="progress-bar " Xclass="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-              aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+          <div class="progress justify-content-center" style="height: 40px">
+            <div id="time-bar" class="progress-bar justify-content-center" Xclass="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
           </div>
           <!-- end progress -->
           <div class="container bg-game rounded mt-5 pb-5">
-            <div class="row">  <!-- question row -->
-              
+            <div class="row">
+              <!-- question row -->
+
               <div class="col-12">
                 <div id="question-box" class="border border-primary b-bold rounded justify-content-center bg-white text-dark my-5 p-3 py-6">
                   <h4 id="question" class="text-center">Question</h4>
                 </div>
               </div>
-            </div>  <!-- end question row -->
-            
-          <!-- </div> -->
+            </div>
+            <!-- end question row -->
+
+            <!-- </div> -->
 
 
 
-          <!-- <div class="container bg-warning"> -->
+            <!-- <div class="container bg-warning"> -->
 
             <div class="row">
               <!-- top answer row -->
               <!-- <div class="row"> -->
               <div class="col-6 ">
                 <div id="cb1" value="1" class="answer border border-primary b-2 rounded justify-content-right bg-dark text-white m-2 p-3">
-                  <span id="c1" class="text-left">response A</span>
+                  <span id="c1" class="text-left">A</span>
                 </div>
               </div>
               <div class="col-6">
-                <div id="cb2" value="2" class="answer border border-primary b-2 rounded justify-content-left m-2 p-3">
-                  <span id="c2" class="text-left">response B</span>
+                <div id="cb2" value="2" class="answer border border-primary b-2 rounded justify-content-left bg-dark text-white m-2 p-3">
+                  <span id="c2" class="text-left">B</span>
                 </div>
               </div>
             </div>
@@ -124,13 +126,13 @@
               <!-- top answer row -->
               <!-- <div class="row"> -->
               <div class="col-6 ">
-                <div id="cb3" value="3" class="answer border border-primary b-2 rounded justify-content-right m-2 p-3">
-                  <span id="c3" class="text-left">response C</span>
+                <div id="cb3" value="3" class="answer border border-primary b-2 rounded justify-content-right bg-dark text-white m-2 p-3">
+                  <span id="c3" class="text-left">C</span>
                 </div>
               </div>
               <div class="col-6">
-                <div id="cb4" value="4" class="answer border border-primary b-2 rounded justify-content-left m-2 p-3">
-                  <span id="c4" class="text-left">response D</span>
+                <div id="cb4" value="4" class="answer border border-primary b-2 rounded justify-content-left bg-dark text-white m-2 p-3">
+                  <span id="c4" class="text-left">D</span>
                 </div>
               </div>
             </div>
@@ -147,16 +149,17 @@
         <div class="card right-card-bg" Xstyle="width: 18rem;">
           <img class="card-img-top" src="./assets/images/logo.png" XSstyle="width:75%" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">Life Lines</h5>
+            <h5 class="card-title text-white mt-6">Life Lines</h5>
             <ul class="list-group">
-              <li class="list-group-item">Phone a friend</li>
-              <li class="list-group-item">remove 2 wrong answers</li>
-              <li class="list-group-item">Ask the audience</li>
+              <li id="phone" class="btn btn-info m-1">Phone a friend</li>
+              <li id="50-50" class=" btn btn-info m-1">50 / 50</li>
+              <li id="audience" class="btn btn-info m-1">Ask the audience</li>
             </ul>
 
             <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-            <a id="test" class="btn btn-primary">next question</a>
           </div>
+          <!-- <a id="intro-dialog" class="btn btn-primary">intro dialog</a> -->
+          <!-- <a id="final-dialog" class="btn btn-primary">final dialog</a> -->
         </div>
       </div>
       <!-- </div>  -->
@@ -165,31 +168,187 @@
   </div>
   <!--container-fluid container-fluid-->
 
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
 
+        <!-- Modal Header -->
+        <div class="modal-header" id="modal-header">
+          <h4 class="modal-title" id="modal-title">Modal title</h4>
+          <button id="modal-header-btn1" type="button" class="close" data-dismiss="modal" id="modal-btn-x">&times;</button>
+        </div>
 
-  <!-- <div class="progress">
-        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0"
-          aria-valuemax="100"></div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h2 id="modal-body">Modal body</h2>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button id="modal-footer-btn1" type="button" class="btn btn-danger" data-dismiss="modal" id="modal-btn">Close</button>
+          <button id="modal-footer-btn1" type="button" class="btn btn-danger" data-dismiss="modal" id="modal-btn">Close</button>
+        </div>
+
       </div>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-          aria-valuemax="100"></div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-          aria-valuemax="100"></div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
-          aria-valuemax="100"></div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
-          aria-valuemax="100"></div>
-      </div> -->
+    </div>
   </div>
+  <!-- End modal dialog -->
 
+  <!-- The final Modal -->
+  <div class="modal fade" id="finalModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header" id="final-modal-header">
+          <h4 class="modal-title" id="final-modal-title">Is that your final answer?</h4>
+          <!-- <button id="modal-header-btn1" type="button" class="close" data-dismiss="modal" id="modal-btn-x">&times;</button> -->
+        </div>
+
+        <!-- Modal body -->
+        <!-- <div class="final-modal-body">
+          <h2 id="modal-body">???????????</h2>
+        </div> -->
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="final-btn-yes btn btn-warning" data-dismiss="modal" id="modal-btn">Yes - That's my final anser</button>
+          <button type="button" class="final-btn-no btn btn-warning" data-dismiss="modal" id="modal-btn">No - I am not sure</button>
+        </div>
+
+      </div>
+    </div>
   </div>
+  <!-- End final modal dialog -->
+
+  <!-- The Game over Modal -->
+  <div class="modal fade" id="game-over-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header" id="game-over-header">
+          <h4 class="modal-title" id="game-over-title">Your game is over</h4>
+          <!-- <button id="modal-header-btn1" type="button" class="close" data-dismiss="modal" id="modal-btn-x">&times;</button> -->
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h2 id="game-over-body">Wrong Answer </h2>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button id="next-game-btn" type="button" class="btn btn-success" data-dismiss="modal" id="modal-btn">Next Player</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- End final modal dialog -->
+
+  <!-- The intro Modal -->
+  <div class="modal fade" id="nameModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header" id="modal-header">
+          <h4 class="modal-title" id="modal-title">Welcome to 'Who wants to be a Millionare'"</h4>
+          <!-- <button id="modal-header-btn1" type="button" class="close" data-dismiss="modal" id="modal-btn-x">&times;</button> -->
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <!-- <h6 id="modal-body">Modal body</h6> -->
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">What is your name?</label>
+              <input type="text" class="form-control" id="name-input" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Who is your phone a friend?</label>
+              <input type="text" class="form-control" id="friend-input" placeholder="Your freinds name">
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button id="modal-name-btn" type="button" class="btn btn-success" data-dismiss="modal" id="modal-btn">Lets Play</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- End intro modal dialog -->
+
+
+
+
+
+
+
+
+
+  <audio id="1000000-music.mp3">
+    <source id="srcAudio" src="./assets/media/1000000-music.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="100-1000-music.mp3">
+    <source id="srcAudio" src="./assets/media/100-1000-music.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="125000-250000-music.mp3">
+    <source id="srcAudio" src="./assets/media/125000-250000-music.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="2000-32000-music.mp3">
+    <source id="srcAudio" src="./assets/media/2000-32000-music.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="5000000-music.mp3">
+    <source id="srcAudio" src="./assets/media/5000000-music.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="64000-music.mp3">
+    <source id="srcAudio" src="./assets/media/64000-music.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="commerical-break.mp3">
+    <source id="srcAudio" src="./assets/media/commerical-break.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="correct-answer.mp3">
+    <source id="srcAudio" src="./assets/media/correct-answer.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="fastest-finger.mp3">
+    <source id="srcAudio" src="./assets/media/fastest-finger.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="final-answer.mp3">
+    <source id="srcAudio" src="./assets/media/final-answer.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="lets-play.mp3">
+    <source id="srcAudio" src="./assets/media/lets-play.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="Main_Theme3.mp3">
+    <source id="srcAudio" src="./assets/media/Main_Theme3.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="main-theme.mp3">
+    <source id="srcAudio" src="./assets/media/main-theme.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="Main-Theme2.mp3">
+    <source id="srcAudio" src="./assets/media/Main-Theme2.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="Main-Theme4-fast.mp3">
+    <source id="srcAudio" src="./assets/media/Main-Theme4-fast.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="Main-Theme5-think.mp3">
+    <source id="srcAudio" src="./assets/media/Main-Theme5-think.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="Main-Theme6-horns.mp3">
+    <source id="srcAudio" src="./assets/media/Main-Theme6-horns.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="phone-a-friend.mp3">
+    <source id="srcAudio" src="./assets/media/phone-a-friend.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="wrong-answer.mp3">
+    <source id="srcAudio" src="./assets/media/wrong-answer.mp3" type="audio/mpeg">
+  </audio>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

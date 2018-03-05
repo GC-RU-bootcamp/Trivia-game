@@ -26,6 +26,7 @@ body {
 .right-card-bg {
   background-color: #5e7d9f;
   background-color: #274a75;
+  min-height: 644px;
 }
 
 .left-card-bg {
@@ -38,6 +39,7 @@ body {
   font-weight: bold;
   list-style-type: none;
   background-color:inherit;
+  line-height: 1.7em;
   /* letter-spacing: -1px; */
 }
 
@@ -45,20 +47,23 @@ body {
   color: rgb(155, 155, 155);
   font-weight: bold ;
   list-style-type: circle;
-  background-color:inherit
+  background-color:inherit;
+  line-height: 1.7em;
   /* letter-spacing: -1px; */
 }
 .level-list-selected {
   color: white;;
   font-weight: bold ;
   list-style-type: none;
-  background-color: rgb(223, 94, 94);
+  background-color: rgb(255, 115, 0);
+  line-height: 1.7em;
   /* letter-spacing: -1px; */
 }
 
 .bg-game {
-  background-color: rgb(223, 94, 94);
+  background-color: rgb(255, 115, 0);
   /* letter-spacing: -1px; */
+  min-height: 436px;
 }
 
 .b-bold {

@@ -151,9 +151,9 @@
           <div class="card-body">
             <h5 class="card-title text-white mt-6">Life Lines</h5>
             <ul class="list-group">
-              <li id="phone" class="btn btn-info m-1">Phone a friend</li>
               <li id="50-50" class=" btn btn-info m-1">50 / 50</li>
-              <li id="audience" class="btn btn-info m-1">Ask the audience</li>
+              <li id="phone" class="btn btn-info m-1">Phone a friend</li>
+              <li id="audience" class="btn btn-info m-1">Audience</li>
             </ul>
 
             <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
@@ -248,6 +248,33 @@
   </div>
   <!-- End final modal dialog -->
 
+
+  <!-- The Phone Modal -->
+  <div class="modal fade" id="phone-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header" id="phone-header">
+          <h4 class="modal-title" id="phone-title">header</h4>
+          <!-- <button id="modal-header-btn1" type="button" class="close" data-dismiss="modal" id="modal-btn-x">&times;</button> -->
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h2 id="phone-body">body</h2>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button id="Phone-btn" type="button" class="continue btn btn-warning" data-dismiss="modal" id="modal-btn">Continue</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- End Phone modal dialog -->
+
   <!-- The intro Modal -->
   <div class="modal fade" id="nameModal">
     <div class="modal-dialog">
@@ -267,10 +294,10 @@
               <label for="exampleFormControlInput1">What is your name?</label>
               <input type="text" class="form-control" id="name-input" placeholder="Your name">
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="exampleFormControlInput1">Who is your phone a friend?</label>
               <input type="text" class="form-control" id="friend-input" placeholder="Your freinds name">
-            </div>
+            </div> -->
           </form>
         </div>
 

@@ -34,8 +34,8 @@ function NextState(nextState, delay) {
 }
 
 var game = {
-  time: 20,
-  maxTime: 20,
+  time: 60,
+  maxTime: 60,
   beets: 2,
   level: -1, //values 1-13
   playerName: "",
@@ -49,11 +49,12 @@ var game = {
   initGame: function() {
     game.time = game.maxTime;
     game.initAnswers();
+    game.initHelpBtn();
     game.playerName = game.friendName = "";
     game.level = -1;
     game.barColor = "";
     game.state = "wait";
-    game.addState("showName", 4);
+    game.addState("showName", 6);
     // set random game here
     // list= data;
   },
@@ -129,30 +130,95 @@ var game = {
       ans.text("");
     }
     $("#question").text("");
+  },
+  answerLetter: function() {
+    switch (game.list[game.level].answer) {
+      case 1:
+        return "A";
+        break;
+      case 2:
+        return "B";
+        break;
+      case 3:
+        return "C";
+        break;
+      case 4:
+        return "D";
+        break;
+    }
+  },
+  initHelpBtn: function() {
+    game.toggleHelpBtn("50-50", true);
+    game.toggleHelpBtn("phone", true);
+    game.toggleHelpBtn("audience", true);
+  },
+  toggleHelpBtn: function(btnId, state /*true=active*/) {
+    if (state === true) {
+      $("#" + btnId).removeClass("disabled");
+      $("#" + btnId).addClass("active");
+    } else {
+      $("#" + btnId).removeClass("active");
+      $("#" + btnId).addClass("disabled");
+    }
+  },
+  hide5050: function() {
+    var h1 = 0;
+    var h2 = 0;
+    var answeri = game.list[game.level].answer;
+    // pick 2 random wrong answers
+    do {
+      var h1 = Math.floor(Math.random() * 4) + 1;
+    } while (h1 === answeri);
+    do {
+      var h2 = Math.floor(Math.random() * 4) + 1;
+    } while (h2 === answeri || h1 === h2);
+
+    var ans, ansBox, boxi;
+    for (i = 1; i <= 4; i++) {
+      ans = $("#c" + i);
+      ansBox = $("#cb" + i);
+      if (i === h1 || i === h2) {
+        ans.text("");
+      }
+      ansBox.removeClass("bg-danger bg-success bg-dark text-white text-dark");
+      ansBox.addClass("bg-dark text-white");
+    }
+  },
+  clearWrongs: function() {
+    var answeri = game.list[game.level].answer;
+    var ans, ansBox;
+    for (i = 1; i <= 4; i++) {
+      ans = $("#c" + i);
+      ansBox = $("#cb" + i);
+      if (i !== answeri) {
+        ans.text("");
+      }
+      ansBox.removeClass("bg-danger bg-success bg-dark text-white text-dark");
+      ansBox.addClass("bg-dark text-white");
+    }
   }
 };
 //var initTime = 20;
 
 //var time = 20;
 
+// USER PICK an ANSWER
 $(".answer").click(function() {
   // var val = parseInt($(this).attr("value"));
-  var ans = game.list[game.level].answer;
-  $(this).removeClass(
-    "bg-danger bg-warning bg-success bg-dark text-white text-dark"
-  );
-  $(this).addClass("bg-warning text-dark");
-  game.userPick = parseInt($(this).attr("value"));
-  game.addState("showFinalDialog", 1);
-
-  // if (ans !== val) {
-  //   $(this).removeClass("bg-danger bg-success bg-dark text-white text-dark");
-  //   $(this).addClass("bg-danger text-white");
-  // } else {
-  //   $(this).removeClass("bg-danger bg-success bg-dark text-white text-dark");
-  //   $(this).addClass("bg-success text-white");
-  // }
-  // return ans !== val
+  //var ans = game.list[game.level].answer;
+  var pick,
+    empty = "";
+  pick = $(this)
+    .text()
+    .trim();
+  if (pick !== empty) {
+    $(this).removeClass(
+      "bg-danger bg-warning bg-success bg-dark text-white text-dark"
+    );
+    $(this).addClass("bg-warning text-dark");
+    game.userPick = parseInt($(this).attr("value"));
+    game.addState("showFinalDialog", 1);
+  }
 });
 
 function showChoice() {
@@ -188,8 +254,8 @@ function clearChoice() {
   return retval; //did pick correct answer?
 }
 
-var timer1 = window.setInterval(stateMachine, 500);
 game.initGame();
+var timer1 = window.setInterval(stateMachine, 500);
 //game.nextQuestion();
 // game.setList(game.level);
 
@@ -199,6 +265,10 @@ $("#test").on("click", function(e) {
 
 $("#L14").on("click", function(e) {
   game.nextQuestion();
+});
+
+$("#L11").on("click", function(e) {
+  game.clearWrongs();
 });
 
 function stateMachine() {
@@ -250,7 +320,9 @@ function stateMachine() {
     case "Main-Theme6-horns.mp3":
     case "phone-a-friend.mp3":
     case "wrong-answer.mp3":
+      pauseAudio();
       startAudio(game.state);
+      game.state = "wait";
       break;
     case "pause-audio":
       pauseAudio();
@@ -281,9 +353,21 @@ function stateMachine() {
       //pauseAudio();
       break;
     case "winner":
-      showGameOverDialog("Congratulations", "You are the big WINNER'");
+      showGameOverDialog(
+        "Congratulations",
+        "You are the BIG 1,000,000 WINNER'"
+      );
       game.state = "wait";
       //pauseAudio();
+      break;
+    case "showPhoneDialog":
+      //pauseAudio();
+      game.state = "wait";
+      showPhoneDialog(
+        "Your friend is not really sure",
+        "They think the answer is " + game.answerLetter()
+      );
+      game.state = "wait";
       break;
     case "showFinalDialog":
       showFinalDialog();
@@ -295,9 +379,9 @@ function stateMachine() {
         game.addState("pause-audio", 0);
         game.addState("correct-answer.mp3", 0);
         if (game.level >= 12) {
-          game.addState("1000000-music.mp3", 4);
+          game.addState("1000000-music.mp3", 6);
         } else if (game.level < 12) {
-          game.addState("100-1000-music.mp3", 4);
+          game.addState("100-1000-music.mp3", 6);
         }
         if (game.level <= 12) {
           game.addState("new-question", 0);
@@ -308,9 +392,9 @@ function stateMachine() {
         }
       } else {
         game.addState("wrong-answer.mp3", 0);
-        game.addState("wrong-answer", 2);
+        game.addState("wrong-answer", 0);
         game.addState("clearQ", 0);
-       // game.addState("pause-audio", 6);
+        // game.addState("pause-audio", 6);
       }
       break;
     case "clearChoice":
@@ -407,7 +491,7 @@ $("#modal-name-btn").click(function() {
   game.addState("pause-audio", 0);
   game.addState("lets-play.mp3", 0);
   // game.addState("pause-audio", 8);
-  game.addState("100-1000-music.mp3", 0);
+  game.addState("100-1000-music.mp3", 6);
   game.addState("new-question", 0);
   game.addState("play", 0);
 });
@@ -438,10 +522,60 @@ function showGameOverDialog(title, body) {
     keyboard: false
     // to prevent closing with Esc button (if you want this too)
   });
+  this.dialogOpen = true;
+} //showDialog
 
+function showPhoneDialog(title, body) {
+  $("#phone-title").text(title);
+  $("#phone-body").text(body);
+  $("#phone-modal").modal({
+    backdrop: "static",
+    keyboard: false
+    // to prevent closing with Esc button (if you want this too)
+  });
+  this.dialogOpen = true;
+} //showDialog
+
+function showAudienceDialog(title, aa, ab, ac, ad) {
+  $("#audience-title").text(title);
+  $("#audience-a-body").text(aa);
+  $("#audience-b-body").text(ab);
+  $("#audience-c-body").text(ac);
+  $("#audience-d-body").text(ac);
+  $("#audience-modal").modal({
+    backdrop: "static",
+    keyboard: false
+    // to prevent closing with Esc button (if you want this too)
+  });
   this.dialogOpen = true;
 } //showDialog
 
 $("#next-game-btn").click(function() {
   game.initGame();
+});
+
+$("#50-50").click(function() {
+  if ($(this).hasClass("active")) {
+    game.hide5050();
+    game.toggleHelpBtn("50-50", false);
+  }
+});
+
+$("#phone").click(function() {
+  //game.hide5050();
+  if ($(this).hasClass("active")) {
+    game.toggleHelpBtn("phone", false);
+    game.addState("showPhoneDialog", 0);
+  }
+});
+
+$("#audience").click(function() {
+  //game.hide5050();
+  if ($(this).hasClass("active")) {
+    game.toggleHelpBtn("audience", false);
+  }
+});
+
+$(".continue").click(function() {
+  game.addState("play", 0);
 });

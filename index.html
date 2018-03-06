@@ -165,6 +165,21 @@
       <!-- </div>  -->
     </div>
     <!-- END right panel -->
+    <!-- row -->
+    <!-- <div class="row">. </div> -->
+    <!-- page footer -->
+    <div class="row bg.dark mt-3">
+      <div class="col-sm-12" style=" background-color:#666">
+        <!-- <div class="container-fluid alert alert-dark "> -->
+        <div class="container-fluid   " style=" background-color:#666">
+          <p class="text-center text-white ">
+            <strong class=".text-center ">&copy; copyright Gary Cender</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- end page footer -->
+
   </div>
   <!--container-fluid container-fluid-->
 
@@ -249,6 +264,34 @@
   <!-- End final modal dialog -->
 
 
+  <!-- The Audience Modal -->
+  <div class="modal fade" id="audience-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header" id="audience-header">
+          <h4 class="modal-title" id="audience-title">header</h4>
+          <!-- <button id="modal-header-btn1" type="button" class="close" data-dismiss="modal" id="modal-btn-x">&times;</button> -->
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h4 id="audience-a-body">body</h4>
+          <h4 id="audience-b-body">body</h4>
+          <h4 id="audience-c-body">body</h4>
+          <h4 id="audience-d-body">body</h4>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button id="audience-btn" type="button" class="continue btn btn-warning" data-dismiss="modal" id="modal-btn">Continue</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- End Phone modal dialog -->
   <!-- The Phone Modal -->
   <div class="modal fade" id="phone-modal">
     <div class="modal-dialog">
@@ -273,7 +316,7 @@
       </div>
     </div>
   </div>
-  <!-- End Phone modal dialog -->
+  <!-- End Audience modal dialog -->
 
   <!-- The intro Modal -->
   <div class="modal fade" id="nameModal">
@@ -282,7 +325,7 @@
 
         <!-- Modal Header -->
         <div class="modal-header" id="modal-header">
-          <h4 class="modal-title" id="modal-title">Welcome to 'Who wants to be a Millionare'"</h4>
+          <h3 class="modal-title text-success" id="modal-title">'Who wants to be a Millionare'"</h3>
           <!-- <button id="modal-header-btn1" type="button" class="close" data-dismiss="modal" id="modal-btn-x">&times;</button> -->
         </div>
 
@@ -291,9 +334,13 @@
           <!-- <h6 id="modal-body">Modal body</h6> -->
           <form>
             <div class="form-group">
-              <label for="exampleFormControlInput1">What is your name?</label>
+              <label for="exampleFormControlInput1">
+                <strong>What is your name?</strong>
+              </label>
               <input type="text" class="form-control" id="name-input" placeholder="Your name">
             </div>
+            <hr>
+            <h4 class="text-danger">Enable sound for the best experience</h4>
             <!-- <div class="form-group">
               <label for="exampleFormControlInput1">Who is your phone a friend?</label>
               <input type="text" class="form-control" id="friend-input" placeholder="Your freinds name">

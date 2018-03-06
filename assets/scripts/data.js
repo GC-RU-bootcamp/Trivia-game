@@ -30,7 +30,7 @@ var data = [
       "C.   John McEnroe",
       "D.   Gabriela Sabatini"
     ],
-    answer: 1
+    answer: 3
   },
   {
     question: "Which of the following is not a popular boy band?",
@@ -112,11 +112,11 @@ var data = [
     ],
     answer: 2
   },
-  {
-    question: "In 1999, what was annual rate of inflation?",
-    choice: ["A.   4.26%", "B.   1.26%", "C.   2.26%", "D.   .26%"],
-    answer: 3
-  },
+  // {
+  //   question: "In 1999, what was annual rate of inflation?",
+  //   choice: ["A.   4.26%", "B.   1.26%", "C.   2.26%", "D.   .26%"],
+  //   answer: 3
+  // },
   {
     question: "What planet spins on its axis at a quarter-mile per second?",
     choice: ["A.   Moon", "B.   Mars", "C.   Jupiter", "D.   Earth"],
@@ -130,7 +130,7 @@ var data = [
       "C.   onions",
       "D.   beets"
     ],
-    answer: 1
+    answer: 3
   },
   {
     question:
@@ -142,10 +142,8 @@ var data = [
       "D.   25 seconds"
     ],
     answer: 2
-  }
-];
+  },
 
-var data2 = [
   {
     question: "Who is the patron saint of Spain?",
     choice: [

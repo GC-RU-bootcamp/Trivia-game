@@ -395,6 +395,17 @@ function stateMachine() {
       );
       game.state = "wait";
       break;
+    case "showdisclaimerDialog":
+      //pauseAudio();
+      game.state = "wait";
+      showAudienceDialog(
+        "Dislaimer",
+        "This game is intended for entertainment purposes only and does not offer 'real money' or an opportunity to win real money or prizes.",
+        "This game was developed by Gary Cender as a ‘Rutgers Full Stack Web Development’ class project to make use of JavaScript timers." ,
+        "The intent was to model the timing of the host and contestant of the “Who wants to be a Millionaire” TV show.",
+        "All questions, images and sounds are from publicly available internet resources"      );
+      game.state = "wait";
+      break;
     case "showFinalDialog":
       showFinalDialog();
       game.state = "wait";
@@ -596,7 +607,6 @@ $("#50-50").click(function () {
 });
 
 $("#phone").click(function () {
-  //game.hide5050();
   if ($(this).hasClass("active")) {
     game.toggleHelpBtn("phone", false);
     game.addState("showPhoneDialog", 0);
@@ -604,12 +614,16 @@ $("#phone").click(function () {
 });
 
 $("#audience").click(function () {
-  //game.hide5050();
   if ($(this).hasClass("active")) {
     // game.toggleHelpBtn("audience", false);
     game.addState("showAudienceDialog", 0);
   }
 });
+
+$("#disclaimer").click(function () {
+     game.addState("showdisclaimerDialog", 0);
+});
+showdisclaimerDialog
 
 $(".continue").click(function () {
   game.addState("play", 0);

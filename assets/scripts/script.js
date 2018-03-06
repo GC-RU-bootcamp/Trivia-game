@@ -623,7 +623,6 @@ $("#audience").click(function () {
 $("#disclaimer").click(function () {
      game.addState("showdisclaimerDialog", 0);
 });
-showdisclaimerDialog
 
 $(".continue").click(function () {
   game.addState("play", 0);
